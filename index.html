@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+    </style>
+    <link rel="stylesheet" href="./styles/modern-normalize.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Крестики нолики</title>
+</head>
+
+<body>
+    <div class="body__game">
+        <div class="result">
+            <div class="result__player result__player--one">
+                <p class="name__playerOne name__text">Константин</p>
+                <p class="score__playerOne score__text">0</p>
+            </div>
+            <div class="result__row">
+                <p class="name__row name__text">Ничья</p>
+                <p class="score__row score__text">0</p>
+            </div>
+            <div class=" result__player result__player--two">
+                <p class="name__playerTwo name__text">Константин</p>
+                <p class="score__playerTwo score__text">0</p>
+            </div>
+        </div>
+        <div class="border__game">
+            <button class="border__cell"></button>
+            <button class="border__cell"></button>
+            <button class="border__cell"></button>
+            <button class="border__cell"></button>
+            <button class="border__cell"></button>
+            <button class="border__cell"></button>
+            <button class="border__cell"></button>
+            <button class="border__cell"></button>
+            <button class="border__cell"></button>
+        </div>
+    </div>
+    <div class="leftImg"><img src="./assets/img/tic. tac.toe..svg" alt=""></div>
+    <script src="./src/js/script.js"></script>
+</body>
+
+</html>
+
+
+
+
+<!-- <h1 class="new__game">Создать игру</h1>
+<form class="form" action="">
+    <div class="input__group">
+
+        <label class="input__label--text" for="name__player1">Введите имя игрока №1 </label>
+        <input class="input__form--modifier" id="name__player1" type="text" name="name__player1"
+            placeholder="Константин">
+    </div>
+
+    <div class="input__group">
+        <label class="input__label--text" for="name__player2">Введите имя игрока №2 </label>
+        <input class="input__form--modifier" id="name__player2" type="text" name="name__player2"
+            placeholder="Никита">
+    </div>
+    <button class="form__button">СОЗДАТЬ ИГРУ</button>
+</form> -->

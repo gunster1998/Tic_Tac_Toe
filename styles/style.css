@@ -1,0 +1,267 @@
+:root {
+    --menu-color: #1b92d3;
+    font-family: "Roboto", serif;
+    font-style: normal;
+}
+
+:root {
+    line-height: calc(1em + 0.5rem);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+figure,
+p,
+ol,
+ul {
+    margin: 0;
+}
+
+ol[role="list"],
+ul[role="list"] {
+    list-style: none;
+    padding-inline: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+body {
+    background-color: #5A1E76;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+p {
+    text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-wrap: balance;
+}
+
+#root,
+#__next {
+    isolation: isolate;
+}
+
+* {
+    font-family: "Roboto", serif;
+    box-sizing: border-box;
+}
+
+.body__game {
+    position: relative;
+    width: 60%;
+    height: 80%;
+    background-color: #43115B;
+    border-radius: 5%;
+}
+
+.new__game {
+    color: #FFF;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-top: 64px;
+}
+
+.form {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+}
+
+.input__label--text {
+    color: #FFF;
+    text-align: left;
+    font-family: Roboto;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+
+.input__group {
+    width: 80%;
+}
+
+
+.input__form--modifier {
+    width: 100%;
+    padding: 10px;
+    height: 119px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    background: #5A1E76;
+    border: 0px;
+    margin-top: 10px;
+}
+
+.input__form--modifier::placeholder {
+    color: #B7B3B3;
+    text-align: left;
+    font-family: Roboto;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.form__button {
+    position: absolute;
+    margin-top: 100px;
+    width: 80%;
+    height: 119px;
+    border-radius: 20px;
+    background: #DCBF3F;
+    border: 0;
+    color: #FFF;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    cursor: pointer;
+    bottom: 60px;
+}
+
+.leftImg {
+    width: 250px;
+}
+
+.leftImg {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.result {
+    margin-top: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+    display: flex;
+    align-items: flex-start;
+    gap: 22px;
+}
+
+.result__player--one {
+    display: flex;
+    height: 139px;
+    padding: 14px 25px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex: 1 0 0;
+    border-radius: 10px;
+    background: #48D2FE;
+}
+
+.result__row {
+    display: flex;
+    height: 139px;
+    padding: 14px 25px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex: 1 0 0;
+    border-radius: 10px;
+    background: #BCDBF9;
+}
+
+.result__player--two {
+    display: flex;
+    height: 139px;
+    padding: 14px 25px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex: 1 0 0;
+    border-radius: 10px;
+    background: #E2BE00;
+}
+
+.name__text {
+    color: #000;
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.score__text {
+    color: #000;
+    font-family: Roboto;
+    font-size: 42px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.border__cell {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+background: #43115B;
+}
