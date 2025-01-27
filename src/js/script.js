@@ -76,6 +76,13 @@ function GameController(playerOneName = 'Player One',
   //Активный игрок
   let activePlayer = players[0];
 
+  const getGameStatus = () => ({
+    players,
+    activePlayer,
+    gameStatus,
+    grid: grid.getGrid()
+  })
+
   //Ничья
   const incrementRow = () => gameStatus.draw++
   //Перключение
@@ -178,12 +185,86 @@ function GameController(playerOneName = 'Player One',
   };
 
 
-  return { playRound, getActivePlayer, getGrid: grid.getGrid, findingWinner }; // Интерфейс для управления игрой
+  return { playRound, getActivePlayer, getGrid: grid.getGrid, findingWinner, getGameStatus }; // Интерфейс для управления игрой
 }
 
-function ScreenController() {
+(function ScreenController() {
+  const gameContainer = document.querySelector('.body__game')
 
-}
+  function showPlayerForm() {
+    gameContainer.innerHTML = `<h1 class="new__game">Создать игру</h1>
+<form class="form" id="form_play" action="">
+    <div class="input__group">
+
+        <label class="input__label--text" for="name__player1">Введите имя игрока №1 </label>
+        <input style="font-size: 36px;" class="input__form--modifier" id="name__player1" type="text" name="name__player1"
+            placeholder="Константин">
+    </div>
+
+    <div class="input__group">
+        <label class="input__label--text" for="name__player2">Введите имя игрока №2 </label>
+        <input class="input__form--modifier" id="name__player2" type="text" name="name__player2"
+            placeholder="Никита">
+    </div>
+    <button class="form__button">СОЗДАТЬ ИГРУ</button>
+</form>`
+
+    const playerForm = document.querySelector('#form_play');
+    playerForm.addEventListener('submit', startGame);
+  }
+
+  function renderingGame(players, gameStatus) {
+    gameContainer.innerHTML = `<div class="result">
+      <div class="result__player result__player--one">
+          <p class="name__playerOne name__text">${players[0].name}</p>
+          <p class="score__playerOne score__text">${players[0].score}</p>
+      </div>
+      <div class="result__row">
+          <p class="name__row name__text">Ничья</p>
+          <p class="score__row score__text">0</p>
+      </div>
+      <div class=" result__player result__player--two">
+          <p class="name__playerTwo name__text">${players[1].name}</p>
+          <p class="score__playerTwo score__text">${players[0].score}</p>
+      </div>
+  </div>`
+
+  const borderGame = document.createElement('div')
+  borderGame.classList.add('border__game')
+  gameStatus.grid.array.forEach((row,rowIndex) => {
+    row.forEach((cell,cellIndex) => {
+      const cellButton = document.createElement('button')
+      cellButton.classList.add('border__cell')
+      cellButton.dataset.row = rowIndex;
+      cellButton.dataset.cell = cellIndex;
+
+      cellButton.innerHTML = '';
+
+      const cellValue = cell.getValue;
+    })
+  });
+ 
+
+  
+
+  function startGame(event) {
+    event.preventDefault();
+
+    const playerOne = document.getElementById('name__player1').value
+    const playerTwo = document.getElementById('name__player2').value
+
+    const game = GameController(playerOne, playerTwo);
+
+    const gameStatus = game.getGameStatus();
+
+    const arrayDate = gameStatus.grid.map((row) => row.map(cell => cell.getValue));
+
+    console.log(arrayDate)
+    renderingGame(gameStatus.players,gameStatus);
+  }
+
+  showPlayerForm()
+})();
 
 
 

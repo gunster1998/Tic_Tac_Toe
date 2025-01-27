@@ -93,7 +93,7 @@ h6 {
 .body__game {
     position: relative;
     width: 60%;
-    height: 80%;
+    max-height: 80%;
     background-color: #43115B;
     border-radius: 5%;
 }
@@ -143,6 +143,12 @@ h6 {
     background: #5A1E76;
     border: 0px;
     margin-top: 10px;
+    color: #B7B3B3;
+    text-align: left;
+    font-family: Roboto;
+    font-size: 40px;
+    font-weight: 300;
+    line-height: normal;
 }
 
 .input__form--modifier::placeholder {
@@ -165,7 +171,6 @@ body {
 }
 
 .form__button {
-    position: absolute;
     margin-top: 100px;
     width: 80%;
     height: 119px;
@@ -180,7 +185,7 @@ body {
     font-weight: 700;
     line-height: normal;
     cursor: pointer;
-    bottom: 60px;
+    margin-bottom: 50px;
 }
 
 .leftImg {
@@ -260,8 +265,33 @@ body {
 }
 
 .border__cell {
-    width: 150px;
-    height: 150px;
+    width: 100%;
+    height: 100%;
     border-radius: 10px;
-background: #43115B;
+    background: #5A1E76;
+    border: 0px;
+}
+
+.border__game {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3,1fr);
+    gap: 25px;
+    justify-content: center;
+margin: 50px;
+}
+
+.border__cell {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.input__group:last-child {
+    margin-bottom: 100px;
+}
+
+.input[type=text]{
+
 }
