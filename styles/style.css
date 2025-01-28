@@ -273,12 +273,13 @@ body {
 }
 
 .border__game {
+    height: 500px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3,1fr);
+    grid-template-rows: repeat(3, 1fr);
     gap: 25px;
     justify-content: center;
-margin: 50px;
+    margin: 50px;
 }
 
 .border__cell {
@@ -292,6 +293,4 @@ margin: 50px;
     margin-bottom: 100px;
 }
 
-.input[type=text]{
-
-}
+.input[type=text] {}

@@ -161,7 +161,7 @@ function GameController(playerOneName = 'Player One',
     }
 
     //Обновить количество раундов
-    if (gameStatus.movesCount > 4) {
+    if (gameStatus.movesCount > 4 && gameStatus.movesCount < 9) {
       if (findingWinner()) {
         updateRound();
         grid.printGrid()
@@ -191,6 +191,7 @@ function GameController(playerOneName = 'Player One',
 (function ScreenController() {
   const gameContainer = document.querySelector('.body__game')
 
+
   function showPlayerForm() {
     gameContainer.innerHTML = `<h1 class="new__game">Создать игру</h1>
 <form class="form" id="form_play" action="">
@@ -207,13 +208,14 @@ function GameController(playerOneName = 'Player One',
             placeholder="Никита">
     </div>
     <button class="form__button">СОЗДАТЬ ИГРУ</button>
-</form>`
+</form>
+`
 
     const playerForm = document.querySelector('#form_play');
     playerForm.addEventListener('submit', startGame);
   }
 
-  function renderingGame(players, gameStatus) {
+  function renderingGame(players, gameStatus, game) {
     gameContainer.innerHTML = `<div class="result">
       <div class="result__player result__player--one">
           <p class="name__playerOne name__text">${players[0].name}</p>
@@ -221,31 +223,49 @@ function GameController(playerOneName = 'Player One',
       </div>
       <div class="result__row">
           <p class="name__row name__text">Ничья</p>
-          <p class="score__row score__text">0</p>
+          <p class="score__row score__text">${gameStatus.gameStatus.draw}</p>
       </div>
       <div class=" result__player result__player--two">
           <p class="name__playerTwo name__text">${players[1].name}</p>
-          <p class="score__playerTwo score__text">${players[0].score}</p>
+          <p class="score__playerTwo score__text">${players[1].score}</p>
       </div>
-  </div>`
+    </div>
+    `
 
-  const borderGame = document.createElement('div')
-  borderGame.classList.add('border__game')
-  gameStatus.grid.array.forEach((row,rowIndex) => {
-    row.forEach((cell,cellIndex) => {
-      const cellButton = document.createElement('button')
-      cellButton.classList.add('border__cell')
-      cellButton.dataset.row = rowIndex;
-      cellButton.dataset.cell = cellIndex;
+    const borderGame = document.createElement('div')
+    borderGame.classList.add('border__game')
+    gameStatus.grid.forEach((row, rowIndex) => {
+      row.forEach((cell, cellIndex) => {
+        const cellButton = document.createElement('button')
+        cellButton.classList.add('border__cell')
+        cellButton.dataset.row = rowIndex;
+        cellButton.dataset.cell = cellIndex;
 
-      cellButton.innerHTML = '';
+        cellButton.innerHTML = '';
 
-      const cellValue = cell.getValue;
+        const cellValue = cell.getValue();
+
+        if (cellValue !== 0) {
+          const img = document.createElement('img')
+          img.src = cellValue === 1 ? './assets/img/circle.png' : './assets/img/cross.png';
+
+          cellButton.appendChild(img);
+
+        }
+
+        cellButton.addEventListener('click', () => {
+          game.playRound(rowIndex, cellIndex);
+          renderingGame(players, gameStatus, game);
+        })
+        borderGame.appendChild(cellButton);
+      })
     })
-  });
- 
+    gameContainer.appendChild(borderGame)
+    console.log(gameStatus.players)
+  }
 
-  
+
+
 
   function startGame(event) {
     event.preventDefault();
@@ -259,8 +279,8 @@ function GameController(playerOneName = 'Player One',
 
     const arrayDate = gameStatus.grid.map((row) => row.map(cell => cell.getValue));
 
-    console.log(arrayDate)
-    renderingGame(gameStatus.players,gameStatus);
+    console.log(gameStatus.gameStatus.draw)
+    renderingGame(gameStatus.players, gameStatus, game);
   }
 
   showPlayerForm()
