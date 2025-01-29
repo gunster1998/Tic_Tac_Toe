@@ -93,7 +93,7 @@ h6 {
 .body__game {
     position: relative;
     width: 60%;
-    max-height: 80%;
+    max-height: 100%;
     background-color: #43115B;
     border-radius: 5%;
 }
@@ -277,7 +277,7 @@ body {
 }
 
 .border__game {
-    height: 50vh;
+    height: 70vh;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
@@ -293,6 +293,8 @@ body {
 
 
 @media (max-width: 400px) {
-    
+    .leftImg {
+        display: none;
+    }
 }
 
