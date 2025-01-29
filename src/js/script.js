@@ -161,7 +161,7 @@ function GameController(playerOneName = 'Player One',
     }
 
     //Обновить количество раундов
-    if (gameStatus.movesCount > 4 && gameStatus.movesCount < 9) {
+    if (gameStatus.movesCount > 4) {
       if (findingWinner()) {
         updateRound();
         grid.printGrid()
