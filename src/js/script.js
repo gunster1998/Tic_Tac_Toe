@@ -161,7 +161,7 @@ function GameController(playerOneName = 'Player One',
     }
 
     //Обновить количество раундов
-    if (gameStatus.movesCount > 4) {
+    if (gameStatus.movesCount > 4 && gameStatus.movesCount < 9) { // Для оптимизации, что бы искать победителя только с 5 раунда
       if (findingWinner()) {
         updateRound();
         grid.printGrid()
@@ -170,7 +170,7 @@ function GameController(playerOneName = 'Player One',
         resetMove();
         return
       }
-    } else if (gameStatus.movesCount > 9) {
+    } else if (gameStatus.movesCount === 9) {
       console.log("Игра закончилась ничьей!");
       updateRound();
       incrementRow();
