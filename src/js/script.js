@@ -191,6 +191,36 @@ function GameController(playerOneName = 'Player One',
 (function ScreenController() {
   const gameContainer = document.querySelector('.body__game')
 
+  function MusicGame () {
+    const buttonStart = document.querySelector('.form__button')
+    const audioGame = document.getElementById('audioGame')
+    const audioStart = document.getElementById('audioStart')
+    const cellArray = document.querySelectorAll('.border__cell')
+
+    document.addEventListener('click', () => {
+      audioGame.muted = false;
+      audioGame.play();
+    })
+
+    if (buttonStart) {
+      buttonStart.addEventListener('click', () => {
+        audioStart.muted = false;
+        audioStart.play();
+      })
+    }
+
+    if (cellArray) {
+      cellArray.forEach ((cell) => {
+        const hasImg = cell.getElementsByTagName('img').length > 0;
+        if (!hasImg)
+        cell.addEventListener('click', () => {
+          audioStart.play();
+        } )
+      })
+    }
+
+  }
+  
 
   function showPlayerForm() {
     gameContainer.innerHTML = `<h1 class="new__game">Создать игру</h1>
@@ -262,8 +292,8 @@ function GameController(playerOneName = 'Player One',
     })
     gameContainer.appendChild(borderGame)
     console.log(gameStatus.players)
+    MusicGame ();
   }
-
 
 
 
@@ -282,8 +312,8 @@ function GameController(playerOneName = 'Player One',
     console.log(gameStatus.gameStatus.draw)
     renderingGame(gameStatus.players, gameStatus, game);
   }
-
-  showPlayerForm()
+  showPlayerForm();
+  MusicGame ();
 })();
 
 

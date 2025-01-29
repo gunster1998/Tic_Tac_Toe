@@ -265,6 +265,10 @@ body {
 }
 
 .border__cell {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 100%;
     border-radius: 10px;
@@ -273,7 +277,7 @@ body {
 }
 
 .border__game {
-    height: 500px;
+    height: 50vh;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
@@ -282,15 +286,11 @@ body {
     margin: 50px;
 }
 
-.border__cell {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
 
 .input__group:last-child {
     margin-bottom: 100px;
 }
 
-.input[type=text] {}
+.body {
+    
+}
