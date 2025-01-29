@@ -291,6 +291,8 @@ body {
     margin-bottom: 100px;
 }
 
-.body {
+
+@media (max-width: 400px) {
     
 }
+

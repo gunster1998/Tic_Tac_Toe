@@ -170,7 +170,7 @@ function GameController(playerOneName = 'Player One',
         resetMove();
         return
       }
-    } else if (gameStatus.movesCount > 8) {
+    } else if (gameStatus.movesCount > 9) {
       console.log("Игра закончилась ничьей!");
       updateRound();
       incrementRow();
